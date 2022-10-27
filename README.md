@@ -11,28 +11,28 @@ Scapy is a powerful and versatile packet manipulation tool written in python. Us
 
 **Packet sniffing** is the process of capturing all the packets flowing across a computer network. The sniffed packets give away a lot of information like what website does a user visit, what contents does the user see, what does the user download and almost everything. The captured packets are usually stored for future analysis.
 [More here : link](https://www.geeksforgeeks.org/packet-sniffing-using-scapy/)
-The `sniff()` function returns information about all the packets that has been sniffed.
+* The `sniff()` function returns information about all the packets that has been sniffed.
 `capture = sniff()`
-To see the summary of packet responses, use **summary().**
+* To see the summary of packet responses, use **summary().**
 `capture.summary()`
-The `sniff()` function listens for an infinite period of time until the user interrupts.
+* The `sniff()` function listens for an infinite period of time until the user interrupts.
 To restrict the number of packets to be captured sniff() allows a **count** parameter.
 `capture = sniff(count=5)`
-You can also filter packets while sniffing using the **filter** parameter.
+* You can also filter packets while sniffing using the **filter** parameter.
 `sniff(filter="tcp", count=5)`
-When scapy sniffs packets, it generally sniffs from all of your network interfaces. However, we can explicitly mention the interfaces that we would like to sniff on using the **iface** parameter.
+* When scapy sniffs packets, it generally sniffs from all of your network interfaces. However, we can explicitly mention the interfaces that we would like to sniff on using the **iface** parameter.
 `sniff(iface="eth0", count=5)`
-`sniff()` function has another interesting parameter called **prn** that allows you to pass a function that executes with each packet sniffed. This allows us to do some custom actions with each packet sniffed.
+* `sniff()` function has another interesting parameter called **prn** that allows you to pass a function that executes with each packet sniffed. This allows us to do some custom actions with each packet sniffed.
 `sniff(prn=lambda x:x.summary(), count=5)`
-Scapy also allows us to store the sniffed packets in a **pcap** file. 
+* Scapy also allows us to store the sniffed packets in a **pcap** file. 
 `wrpcap("<file name>", capture)`
 
 This is great for HTTP but not HTTPS!
 
-For HTTPS:
+* For HTTPS:
 SSLstrip + dns2proxy
-We need IP forwarding. dns2proxy will need process the packets.
-We will forward to it. SSLstrip works in port 10000. dn2proxy works in 53.
+* We need IP forwarding. dns2proxy will need process the packets.
+* We will forward to it. SSLstrip works in port 10000. dn2proxy works in 53.
 
 ```
 ┌──(root㉿linuxkali)-[~]
